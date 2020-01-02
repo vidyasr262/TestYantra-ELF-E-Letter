@@ -72,13 +72,13 @@ export class InputCertificateLetter extends Component {
                 })
 
 
-                let companyLocation = (document.getElementById("companyLocation").value).trim();
+                // let companyLocation = (document.getElementById("companyLocation").value).trim();
                 let employeeName = (document.getElementById("employeeName").value).trim();
                
                
-                if (companyLocation === "") {
-                    that.setState({ showCompanyLocation: true })
-                }
+                // if (companyLocation === "") {
+                //     that.setState({ showCompanyLocation: true })
+                // }
 
               
 
@@ -86,7 +86,15 @@ export class InputCertificateLetter extends Component {
                     that.setState({ showEmployeeName: true })
                 }
 
-                if (companyLocation != "" && employeeName !== "") {
+
+                /*   if (companyLocation != "" && employeeName !== "") {
+                    console.log("True return")
+                    return true;
+                }
+                else {
+                    return false;
+                } */
+                if (employeeName !== "") {
                     console.log("True return")
                     return true;
                 }

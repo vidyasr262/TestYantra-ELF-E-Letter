@@ -123,12 +123,13 @@ export class InternshipLetter extends Component {
                                 <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10 }}><span style={{ fontWeight: 400 }}>During the duration of this internship program, we found this candidate is sincere, hardworking and performance oriented.</span></p>
                                 <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10 }}><span style={{ fontWeight: 400 }}><br /></span><span style={{ fontWeight: 400 }}>We wish </span><strong>{this.state.employee.employeeName}</strong> <span style={{ fontWeight: 400 }}>success for all </span><span style={{ fontWeight: 400 }}>his </span><span style={{ fontWeight: 400 }}>future endeavours.</span></p>
                                 <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10 }}><br /><br /></p>
-                                <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10 }}><span style={{ fontWeight: 400 }}>For Test Yantra Software Solutions (India) Pvt Ltd</span></p>
+                                <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10 }}><span style={{ fontWeight: 400 }}>Thanks & Regards</span></p>
+                                <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10 }}><span style={{ fontWeight: 400 }}>For <strong>Test Yantra Software Solutions (India) Pvt Ltd</strong></span></p>
                                 <br />
                                 <br />
                                 <br />
                                 <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10, margin: 0, fontWeight: 'bolder' }}>Authorized Signatory</p>
-                                <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10, fontWeight: 'bolder' }}>(Human Resources)</p>
+                                {/* <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10, fontWeight: 'bolder' }}>(Human Resources)</p> */}
                                  <br/>
                                  <br/>
                                  <br/>

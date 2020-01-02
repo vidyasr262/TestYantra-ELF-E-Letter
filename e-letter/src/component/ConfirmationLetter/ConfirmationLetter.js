@@ -125,12 +125,14 @@ export class ConfirmationLetter extends Component {
                                 <p style={{ textAlign: 'justify', paddingLeft: 20, paddingTop: 5 }}>All other terms and conditions of your employment remain unchanged.</p>
                                 <p style={{ textAlign: 'justify', paddingLeft: 20, paddingTop: 5 }}>Please sign and return the duplicate copy of this letter for our records.</p>
                                 <p style={{ textAlign: 'justify', paddingLeft: 20, paddingTop: 5, margin: 0 }}>Sincerely Yours,</p>
-                                <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20 }} align="JUSTIFY"><span >For Test Yantra Software Solutions (India) Pvt Ltd</span></p>
+                                <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20 }} align="JUSTIFY"><span >For <strong>Test Yantra Software Solutions (India) Pvt Ltd</strong></span></p>
                                 <br />
                                 <br />
                                 <br />
                                 <p style={{ textAlign: 'justify', paddingLeft: 20, margin: 0 }}><strong>Authorized Signatory</strong></p>
-                                <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}><span ><strong  >(Human Resources)</strong></span></p>
+                                {/* <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}><span ><strong  >(Human Resources)</strong></span></p> */}
+                                <br />
+                                <br />
                                 <br />
                                 <br />
                                 <br />

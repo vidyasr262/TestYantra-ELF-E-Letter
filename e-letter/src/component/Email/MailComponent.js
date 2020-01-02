@@ -18,6 +18,7 @@ export class MailComponent extends Component {
             subject: '',
             attachment: null,
             modal: false,
+            checkMail:false,
 
             items: [],
             value: "",
@@ -37,6 +38,18 @@ export class MailComponent extends Component {
             showAttach: false
         }
     }
+
+  componentDidMount()
+  {
+    let valueEmail=this.state.from;
+    if(valueEmail==="hr@testyantra.com")
+    {
+        this.setState({
+            checkMail: true
+         } )
+    }
+  }
+
 
     fileName = () => {
         document.querySelector('.custom-file-input').addEventListener('change', function (e) {
@@ -569,7 +582,7 @@ export class MailComponent extends Component {
                                         <div className="col-10">
                                             <textarea id="content" placeholder="Content"
                                                 class="input" style={{ height: 100 }}
-
+ value={this.state.checkMail?"HR Default content":this.state.content}
                                                 rows="5" onChange={(event) => {
                                                     this.setState({
                                                         content: event.target.value

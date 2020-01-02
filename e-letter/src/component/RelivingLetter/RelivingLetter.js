@@ -117,12 +117,13 @@ export class RelivingLetter extends Component {
                                 <p style={{ textAlign: 'justify', paddingLeft: 30 }}>This is to inform that <strong>{this.state.employee.salute}</strong> <strong> {this.state.employee.employeeName}, </strong>was working with us from <strong> {toJoiningDate.getDate()}<sup>{this.nth(toJoiningDate.getDate())}</sup>&nbsp;{moment(toJoiningDate).format('MMMM YYYY')} </strong> to <strong> {moment(toReleiving).subtract(1, "days").format('DD')}<sup>{this.nth(toReleiving.getDate())}</sup>&nbsp;{moment(toReleiving).format('MMMM YYYY')}.</strong> {this.props.empData.gender.gender1} was relieved from {this.props.empData.gender.gender2} responsibilities on <strong> {(toReleiving.getDate())}<sup>{this.nth(toReleiving.getDate())}</sup>&nbsp;{moment(toReleiving).format('MMMM YYYY')}</strong> as <strong>  {this.state.employee.designation} </strong>During {this.props.empData.gender.gender2} stay, {this.props.empData.gender.gender2} character and conduct was good. During {this.props.empData.gender.gender3} tenure, {this.props.empData.gender.gender1} was hardworking and a good team member. We wish {this.props.empData.gender.gender3} success in all {this.props.empData.gender.gender2} future endeavors.</p>
                                 <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                                 <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                                <p style={{ textAlign: 'justify', paddingLeft: 30 }}>For Test Yantra Software Solutions (India) Pvt Ltd</p>
+                                <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Thanks & Regards</p>
+                                <p style={{ textAlign: 'justify', paddingLeft: 30 }}>For <strong>Test Yantra Software Solutions (India) Pvt Ltd</strong></p>
                                 <br />
                                 <br />
                                 <br />
                                 <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, margin: 0, fontWeight: 'bolder' }}>Authorized Signatory</p>
-                                <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}>(Human Resources)</p>
+                                {/* <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}>(Human Resources)</p> */}
                             </div>
                             <br />
                             <br />
@@ -189,13 +190,15 @@ export class RelivingLetter extends Component {
                                 <p style={{ textAlign: 'justify', paddingLeft: 30 }}>As per your resignation letter, we would like to inform you that, you are relieved from the roles and responsibilities of the company from <strong> {(toReleiving.getDate())}<sup>{this.nth(toReleiving.getDate())}</sup>&nbsp;{moment(toReleiving).format('MMMM YYYY')}.</strong> In this regard, we also wish to inform you that there are no commitments outstanding from either of us. We wish you success in all your future endeavors.</p>
                                 <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
                                 <p style={{ textAlign: 'justify', paddingLeft: 30 }}>&nbsp;</p>
-                                <p style={{ textAlign: 'justify', paddingLeft: 30 }}>For Test Yantra Software Solutions (India) Pvt Ltd</p>
+                                <p style={{ textAlign: 'justify', paddingLeft: 30 }}>Thanks & Regards</p>
+                                <p style={{ textAlign: 'justify', paddingLeft: 30 }}>For <strong>Test Yantra Software Solutions (India) Pvt Ltd</strong></p>
                                 <br />
                                 <br />
                                 <br />
                                 <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, margin: 0, fontWeight: 'bolder' }}>Authorized Signatory</p>
-                                <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}>(Human Resources)</p>
+                                {/* <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}>(Human Resources)</p> */}
                             </div>
+                            
                             <br />
                             <br />
                             <br />

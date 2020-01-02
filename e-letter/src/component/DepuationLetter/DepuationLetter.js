@@ -124,7 +124,8 @@ export class DepuationLetter extends Component {
                 <br />
                 <br />
                 <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, margin: 0, fontWeight: 'bolder' }}>Authorized Signatory</p>
-                <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}>(Human Resources)</p>
+                {/* <p style={{ textAlign: 'justify', paddingLeft: 20, paddingRight: 20, fontWeight: 'bolder' }}>(Human Resources)</p> */}
+                <br />
               </div>
             </div>
             {this.state.employee.withHeader ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '365px' }}>

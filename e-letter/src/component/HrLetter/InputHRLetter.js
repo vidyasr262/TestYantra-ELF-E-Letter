@@ -39,6 +39,10 @@ export class InputHRLetter extends Component {
     
     componentDidMount() {
 
+        
+            this.setState({
+                employeeName: this.props.empData.employeeName,
+            })
         var that = this;
         $(document).ready( ()=> {
             $('#generate').click( (e) =>{
@@ -244,7 +248,8 @@ export class InputHRLetter extends Component {
                                                     </select>
                                                 </div>
                                                 <div className="col-9">
-                                                    <MDBInput autocomplete="off"  onKeyPress={this.hideEmployeeName}  label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off"  onKeyPress={this.hideEmployeeName} 
+                                                    value={this.state.employeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
                                                         })

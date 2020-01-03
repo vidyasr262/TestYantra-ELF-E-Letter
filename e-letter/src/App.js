@@ -40,12 +40,15 @@ import Form from './component/Form1';
 import Form1 from './component/Form1';
 import Temp from './component/HrLetter/Temp';
 export class App extends Component{
+  
          
           constructor(props){
             super(props);
+            localStorage.setItem("checkHR",false)
             this.state={
               emp:'',
-              show:''
+              show:'',
+              emp:''
             }
 
           }
@@ -81,7 +84,14 @@ export class App extends Component{
 //   },()=>this.props.history.push("/TrainingLetter"))
   
 // }
- 
+ sendData(data){
+  this.setState({
+    emp:data
+  },()=>{ setTimeout(this.setState({
+    emp:''
+  }), 100)
+  })
+ }
 
     render(){
   return (
@@ -93,8 +103,8 @@ export class App extends Component{
       <Route exact path='/cards' component={Cards}></Route>
       <Route exact path='/drop' component={Dropdown}></Route>
      
-      <Route exact path='/hr'  render={() => { return <InputHRLetter clicked={this.employee.bind()} empData={this.state.emp} /> }}></Route>
-      <Route exact path='/hrLetter'  render={() => { return <HRLetter empData={this.state.emp} navBarData={this.state.show} /> }}></Route>
+      <Route exact path='/hr'  render={() => { return <InputHRLetter getData={this.state.emp} clicked={this.employee.bind()} empData={this.state.emp} /> }}></Route>
+      <Route exact path='/hrLetter'  render={() => { return <HRLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} navBarData={this.state.show} /> }}></Route>
 
       <Route exact path='/inputConfirmation'  render={() => { return <InputConfirmationLetter clicked={this.employee.bind()} /> }} ></Route>
       <Route exact path='/confirmationLetter'   render={() => { return <ConfirmationLetter empData={this.state.emp} /> }}></Route>

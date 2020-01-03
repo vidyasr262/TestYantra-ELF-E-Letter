@@ -18,8 +18,12 @@ export class HRLetter extends Component {
     }
   }
 
+  componentWillUnmount()
+  {
+    localStorage.setItem("checkHR",false)
+  }
   componentDidMount() {
-
+    localStorage.setItem("checkHR",true)
     this.setState({
       employee: this.props.empData,
     })
@@ -72,6 +76,11 @@ export class HRLetter extends Component {
     }
    
   }
+  sendData(){
+    this.props.sendData(this.state.employee);
+    this.props.history.push('/hr');
+
+  }
 
   render() {
 
@@ -88,7 +97,7 @@ export class HRLetter extends Component {
     if (this.props.empData) {
       return (
         <div>
-          {<Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} setHeader={(data)=>this.print()} />}
+          {<Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} sendData={()=>this.sendData()} setHeader={(data)=>this.print()} />}
           <div className="card" style={{ marginTop: '100px' }} id="AFourPage">
             <div className="card-body pb-0 mt-5">
 

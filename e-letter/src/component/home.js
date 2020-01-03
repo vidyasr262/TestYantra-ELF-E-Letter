@@ -76,6 +76,9 @@ import { Thumbnail } from 'react-bootstrap';
     localStorage.clear();
     this.props.history.push('/');
   }
+  sendBack(){
+    this.props.sendData();
+  }
 
   render() {
     return (
@@ -152,7 +155,7 @@ import { Thumbnail } from 'react-bootstrap';
     
     </ul>
     </div>
-    {this.props.buttonShow?<button onClick={()=>{window.history.back()}} className="btn btn-warning">Edit</button>:null}
+    {this.props.buttonShow?<button onClick={()=>{this.sendBack()}} className="btn btn-warning">Edit</button>:null}
     {this.props.buttonShow?<MailComponent/>:null}
     
     {   this.props.buttonShow?<img onClick={this.printPreview} style={{ width: 38, cursor: 'pointer', borderRadius: '100px' }} src={printer} />:null}

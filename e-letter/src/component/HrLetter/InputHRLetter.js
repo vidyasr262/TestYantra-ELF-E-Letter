@@ -36,13 +36,16 @@ export class InputHRLetter extends Component {
             validDate:''
         }
     }
+   
     
     componentDidMount() {
 
         
-            this.setState({
+          /*   this.setState({
                 employeeName: this.props.empData.employeeName,
+                employeeId: this.props.empData.employeeId,
             })
+ */
         var that = this;
         $(document).ready( ()=> {
             $('#generate').click( (e) =>{
@@ -218,11 +221,22 @@ export class InputHRLetter extends Component {
        this.props.history.push('/hrLetter')
 
     }
+setValue=(data)=>{
+        console.log("data is=>>>>>>",data)
+    this.setState({
+        employeeName: data.employeeName,
+        employeeId:data.employeeId,
+        designation: data.designation
+    })
 
+}
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
-                <Home buttonShow={false} />
+                <Home buttonShow={false}  />
                 <div >
                     <div className="container-fluid mt-5">
                         <div className="row">
@@ -267,14 +281,15 @@ export class InputHRLetter extends Component {
 
                                             <div className="row">
                                                 <div className="col-6">
-                                                    <MDBInput autocomplete="off"  onKeyPress={this.hideEmployeeId}  label="Employee Id" name="employeeId" id="employeeId" title="Employee Id" onChange={(event) => {
+                                                    <MDBInput autocomplete="off"  onKeyPress={this.hideEmployeeId}  value={this.state.employeeId} label="Employee Id" name="employeeId" id="employeeId" title="Employee Id" onChange={(event) => {
                                                         this.setState({
                                                             employeeId: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div className="col-6">
-                                                    <MDBInput autocomplete="off"  onKeyPress={this.hideDesignation}  label="Designation" name="designation" id="designation" title="Designation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off"  onKeyPress={this.hideDesignation} 
+                                                    value={this.state.designation} label="Designation" name="designation" id="designation" title="Designation" onChange={(event) => {
                                                         this.setState({
                                                             designation: event.target.value
                                                         })

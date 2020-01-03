@@ -18,6 +18,7 @@ export class ConfirmationLetter extends Component {
     }
 
     componentDidMount() {
+        localStorage.setItem("checkHR",false)
         this.setState({
             employee: this.props.empData,
         })

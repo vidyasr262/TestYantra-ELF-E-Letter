@@ -186,7 +186,7 @@ export class Offer2 extends Component {
                                     </tr>
                                 </tbody>
                             </table>
-                                <table style={{ width: 800, height: 450, marginLeft: 'auto', marginRight: 'auto', fontFamily: 'sans-serif' }} border="1px">
+                               {/*  <table style={{ width: 800, height: 450, marginLeft: 'auto', marginRight: 'auto', fontFamily: 'sans-serif' }} border="1px">
                                     <tbody>
                                         <tr style={{}}>
                                             <th style={{ textAlign: 'center' }} colSpan={3}>
@@ -297,7 +297,7 @@ export class Offer2 extends Component {
                                             <td style={{ width: 300, wordBreak: 'break-all', textAlign: 'right' }} colSpan={2}>&nbsp;</td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table> */}
                                 <br />
                                 <p style={{ textAlign: 'justify', paddingLeft: 10, paddingRight: 10 }}>Note: Take home Salary is subject to Income Tax deduction as per Section 192B of Income tax act, 1961.You can avail tax reduction, by declaring your Investments to HR team at the time of Joining the Company.</p>
 

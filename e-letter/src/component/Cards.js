@@ -34,7 +34,7 @@ export default class Cards extends Component {
                 <Home />
                 <div className="row " style={{ marginLeft: '255px', marginRight: '20px', marginTop: '40px' }}>
 
-                    <Link to='/hr'>
+                    <Link to='/hr' >
 
                         <div className="card HomeCard" style={{ width: '12rem', cursor: "pointer", margin: '20px', height: 180 }}>
                             <img style={{ width: '120px', marginLeft: 'auto', marginRight: 'auto' }} src={HR} className="card-img-top" alt="..." />

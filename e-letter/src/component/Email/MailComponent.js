@@ -11,14 +11,27 @@ import './mail.css'
 export class MailComponent extends Component {
 
     constructor(props) {
-        super(props);
+        
+        super(props)
+        let value;
+        console.log(window.location.href)
+        let url =window.location.href
+        if(url.endsWith("hrLetter"))
+        {
+            value="hr@gmail.com"
+        }
+        else
+       {
+        value=localStorage.getItem("email")
+       }
         this.state = {
-            from: localStorage.getItem("email"),
+            from: value,
             content: '',
             subject: '',
             attachment: null,
             modal: false,
             checkMail:false,
+            //checkHR:false,
 
             items: [],
             value: "",
@@ -39,8 +52,10 @@ export class MailComponent extends Component {
         }
     }
 
+   
   componentDidMount()
   {
+    localStorage.setItem("checkHR",false)
     let valueEmail=this.state.from;
     if(valueEmail==="hr@testyantra.com")
     {

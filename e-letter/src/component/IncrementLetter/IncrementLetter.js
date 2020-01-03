@@ -71,7 +71,12 @@ export class IncrementLetter extends Component {
         }
       }
 
+//edit
+sendData(){
+    this.props.sendData(this.state.employee);
+    this.props.history.push('/InputIncrementLetter');
 
+  }
 
 
     render() {
@@ -86,7 +91,7 @@ export class IncrementLetter extends Component {
         if (this.props.empData) {
             return (
                 <div>
-                  {  <Home buttonShow={true}  showWatermark={(data)=>this.setState({waterMark:data})} setHeader={(data)=>this.print()} /> }
+                  {  <Home buttonShow={true}  showWatermark={(data)=>this.setState({waterMark:data})} sendData={()=>this.sendData()} setHeader={(data)=>this.print()} /> }
                   <div>
                  {/* <div className="header">
                
@@ -101,7 +106,7 @@ export class IncrementLetter extends Component {
                     <div className="card" id="AFourPage" style={{ marginTop: '100px' }}>
                         <div className="card-body">
 
-                        {this.state.employee.withHeader?  <header className="header" style={{marginLeft: '-115px',marginTop: '-115px'}}>
+                        {this.state.waterMark?  <header className="header" style={{marginLeft: '-115px',marginTop: '-115px'}}>
                
                <img  style={{width: '1160px',
    height: '95px'}} src={TyHeader}></img>
@@ -109,7 +114,7 @@ export class IncrementLetter extends Component {
              </header>:null}
 
                      
-                        {this.state.employee.withWaterMark?<div  className="waterMark">
+                        {this.state.waterMark?<div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>
@@ -153,7 +158,7 @@ export class IncrementLetter extends Component {
                             <br/>
                             <br/>
                             <br/>
-                            {this.state.employee.withHeader?<div className="footer" style={this.state.pix?{marginLeft: '-103px',marginTop: '-15px'}:{marginLeft: '-103px',marginTop: '-20px'}}>
+                            {this.state.waterMark?<div className="footer" style={this.state.pix?{marginLeft: '-103px',marginTop: '-15px'}:{marginLeft: '-103px',marginTop: '-20px'}}>
                
                <img style={{width: '1160px',
    height: '95px'}} src={TyFooter}></img>
@@ -166,7 +171,7 @@ export class IncrementLetter extends Component {
                     <div className="card" id="AFourPage" style={{marginTop: '10px'}}>
                         <div className="card-body pb-0">
 
-                        {this.state.employee.withWaterMark?<div  className="waterMark">
+                        {this.state.waterMark?<div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>
@@ -174,7 +179,7 @@ export class IncrementLetter extends Component {
 :null}
                
                       
-               {this.state.employee.withHeader?  <header className="header" style={this.state.pix?{marginLeft: '-115px',marginTop: '-13px'}:{marginLeft: '-115px',marginTop: '-115px'}}>
+               {this.state.waterMark?  <header className="header" style={this.state.pix?{marginLeft: '-115px',marginTop: '-13px'}:{marginLeft: '-115px',marginTop: '-115px'}}>
                
                <img  style={{width: '1160px',
    height: '95px'}} src={TyHeader}></img>
@@ -339,7 +344,7 @@ export class IncrementLetter extends Component {
                             <br/>
                             <br/>
                             <br/>
-                            {this.state.employee.withHeader?<div className="footer" style={this.state.pix?{marginLeft: '-103px',marginTop: '-25px'}:{marginLeft: '-103px',marginTop: '-27px'}}>
+                            {this.state.waterMark?<div className="footer" style={this.state.pix?{marginLeft: '-103px',marginTop: '-25px'}:{marginLeft: '-103px',marginTop: '-27px'}}>
                
                <img style={{width: '1160px',
    height: '95px'}} src={TyFooter}></img>

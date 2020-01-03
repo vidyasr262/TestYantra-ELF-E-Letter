@@ -11,19 +11,23 @@ import './mail.css'
 export class MailComponent extends Component {
 
     constructor(props) {
-        
         super(props)
+
+        // Default mailid for HR
         let value;
         console.log(window.location.href)
         let url =window.location.href
         if(url.endsWith("hrLetter"))
         {
-            value="hr@gmail.com"
+            value="hr@testyantra.com"
         }
         else
        {
         value=localStorage.getItem("email")
        }
+
+       //
+       
         this.state = {
             from: value,
             content: '',
@@ -53,9 +57,10 @@ export class MailComponent extends Component {
     }
 
    
+    // Default content for HR mail
   componentDidMount()
   {
-    localStorage.setItem("checkHR",false)
+   
     let valueEmail=this.state.from;
     if(valueEmail==="hr@testyantra.com")
     {
@@ -64,7 +69,7 @@ export class MailComponent extends Component {
          } )
     }
   }
-
+//
 
     fileName = () => {
         document.querySelector('.custom-file-input').addEventListener('change', function (e) {

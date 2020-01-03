@@ -44,11 +44,9 @@ export class App extends Component{
          
           constructor(props){
             super(props);
-            localStorage.setItem("checkHR",false)
             this.state={
               emp:'',
-              show:'',
-              emp:''
+              show:''
             }
 
           }
@@ -89,7 +87,7 @@ export class App extends Component{
     emp:data
   },()=>{ setTimeout(this.setState({
     emp:''
-  }), 100)
+  }), 1000)
   })
  }
 
@@ -103,46 +101,46 @@ export class App extends Component{
       <Route exact path='/cards' component={Cards}></Route>
       <Route exact path='/drop' component={Dropdown}></Route>
      
-      <Route exact path='/hr'  render={() => { return <InputHRLetter getData={this.state.emp} clicked={this.employee.bind()} empData={this.state.emp} /> }}></Route>
+      <Route exact path='/hr'  render={() => { return <InputHRLetter getData={this.state.emp} clicked={this.employee.bind()}  /> }}></Route>
       <Route exact path='/hrLetter'  render={() => { return <HRLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} navBarData={this.state.show} /> }}></Route>
 
-      <Route exact path='/inputConfirmation'  render={() => { return <InputConfirmationLetter clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/confirmationLetter'   render={() => { return <ConfirmationLetter empData={this.state.emp} /> }}></Route>
+      <Route exact path='/inputConfirmation'  render={() => { return <InputConfirmationLetter getData={this.state.emp} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/confirmationLetter'   render={() => { return <ConfirmationLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} /> }}></Route>
 
-      <Route exact path='/InputcertificateLetter'  render={() => { return <InputCertificateLetter clicked={this.employee.bind()} /> }}></Route>
-      <Route exact path='/certificateLetter' render={() => { return <CertificateLetter empData={this.state.emp} /> }}></Route>
+      <Route exact path='/InputcertificateLetter'  render={() => { return <InputCertificateLetter getData={this.state.emp} clicked={this.employee.bind()} /> }}></Route>
+      <Route exact path='/certificateLetter' render={() => { return <CertificateLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} /> }}></Route>
 
-      <Route exact path='/InputDepuationLetter'  render={() => { return <InputDepuationLetter clicked={this.employee.bind()} /> }}></Route>
-      <Route exact path='/DepuationLetter'  render={() => { return <DepuationLetter empData={this.state.emp} /> }}></Route>
+      <Route exact path='/InputDepuationLetter'  render={() => { return <InputDepuationLetter getData={this.state.emp} clicked={this.employee.bind()} /> }}></Route>
+      <Route exact path='/DepuationLetter'  render={() => { return <DepuationLetter  sendData={(data)=>this.sendData(data)} empData={this.state.emp} /> }}></Route>
 
-      <Route exact path='/InputDesignationLetter'  render={() => { return <InputDesignationLetter clicked={this.employee.bind()} /> }}></Route>
-      <Route exact path='/DesignationLetter' render={() => { return <DesignationLetter empData={this.state.emp} /> }}></Route>
+      <Route exact path='/InputDesignationLetter'  render={() => { return <InputDesignationLetter getData={this.state.emp} clicked={this.employee.bind()} /> }}></Route>
+      <Route exact path='/DesignationLetter' render={() => { return <DesignationLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} /> }}></Route>
 
-      <Route exact path='/InputIncrementLetter' render={() => { return <InputIncrementLetter clicked={this.employee.bind()} /> }}></Route>
-      <Route exact path='/IncrementLetter'  render={() => { return <IncrementLetter empData={this.state.emp} /> }}></Route>
+      <Route exact path='/InputIncrementLetter' render={() => { return <InputIncrementLetter getData={this.state.emp} clicked={this.employee.bind()} /> }}></Route>
+      <Route exact path='/IncrementLetter'  render={() => { return <IncrementLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} /> }}></Route>
 
-      <Route exact path='/InputOfferLetter'  render={() => { return <InputOfferLetter clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/OfferLetter' render={() => { return <OfferLetter empData={this.state.emp} /> }}></Route>
+      <Route exact path='/InputOfferLetter'  render={() => { return <InputOfferLetter getData={this.state.emp} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/OfferLetter' render={() => { return <OfferLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} /> }}></Route>
    
-      <Route exact path='/InputRelivingLetter'  render={() => { return <InputRelivingLetter clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/RelivingLetter' render={() => { return <RelivingLetter empData={this.state.emp} /> }}></Route>
+      <Route exact path='/InputRelivingLetter'  render={() => { return <InputRelivingLetter getData={this.state.emp} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/RelivingLetter' render={() => { return <RelivingLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} /> }}></Route>
 
-      <Route exact path='/InputTrainingCommitLetter' render={() => { return <InputTrainingCommitLetter history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/TrainingCommit'  render={() => { return <TrainingCommit history={this.props.history} empData={this.state.emp} /> }} ></Route>
+      <Route exact path='/InputTrainingCommitLetter' render={() => { return <InputTrainingCommitLetter getData={this.state.emp} history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/TrainingCommit'  render={() => { return <TrainingCommit sendData={(data)=>this.sendData(data)} history={this.props.history} empData={this.state.emp} /> }} ></Route>
 
    {/*  */}
 
-      <Route exact path='/InputExitLetter' render={() => { return <InputExitLetter clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/ExitLetter'  render={() => { return <ExitLetter empData={this.state.emp} /> }} ></Route>
+      <Route exact path='/InputExitLetter' render={() => { return <InputExitLetter getData={this.state.emp} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/ExitLetter'  render={() => { return <ExitLetter sendData={(data)=>this.sendData(data)} empData={this.state.emp} /> }} ></Route>
 
-      <Route exact path='/InputInternship' render={() => { return <InputIntershipLetter  history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/IntershipLetter'  render={() => { return <InternshipLetter  history={this.props.history} empData={this.state.emp} /> }} ></Route>
+      <Route exact path='/InputInternship' render={() => { return <InputIntershipLetter getData={this.state.emp} history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/IntershipLetter'  render={() => { return <InternshipLetter sendData={(data)=>this.sendData(data)} history={this.props.history} empData={this.state.emp} /> }} ></Route>
 
-      <Route exact path='/InputOfferLetter2' render={() => { return <InputOffer2Letter  history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/Offerletter2'  render={() => { return <Offer2  history={this.props.history} empData={this.state.emp} /> }} ></Route>
+      <Route exact path='/InputOfferLetter2' render={() => { return <InputOffer2Letter getData={this.state.emp} history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/Offerletter2'  render={() => { return <Offer2 sendData={(data)=>this.sendData(data)}  history={this.props.history} empData={this.state.emp} /> }} ></Route>
 
-      <Route exact path='/InputIntentLetter' render={() => { return <InputIntentLetter  history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
-      <Route exact path='/IntentLetter'  render={() => { return <Intent  history={this.props.history} empData={this.state.emp} /> }} ></Route>
+      <Route exact path='/InputIntentLetter' render={() => { return <InputIntentLetter getData={this.state.emp} history={this.props.history} clicked={this.employee.bind()} /> }} ></Route>
+      <Route exact path='/IntentLetter'  render={() => { return <Intent sendData={(data)=>this.sendData(data)} history={this.props.history} empData={this.state.emp} /> }} ></Route>
 
      <Route exact path='/withWaterMark' render={() => { return <Example  showWatermark={this.showWatermark.bind()} /> }} ></Route>
      

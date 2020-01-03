@@ -196,8 +196,27 @@ export class InputIncrementLetter extends Component {
 
      }
 
+      //edit
+setValue=(data)=>{
+    console.log("data is ",data)
+this.setState({
+    employeeName: data.employeeName,
+    employeeId:data.employeeId,
+    designation: data.designation,
+    companyLocation: data.companyLocation,
+    annualCompensationYear: data.annualCompensationYear,
+    salaryIncremented:data.salaryIncremented,
+    incrementInEffectDate: data.incrementInEffectDate,
+   
+})
+
+}
+//
 
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <Home buttonShow={false}/>
@@ -213,14 +232,14 @@ export class InputIncrementLetter extends Component {
                                         <form onSubmit={this.pass}>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.employeeName} onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeId}  label="Employee Id" className="w-100" name="employeeId" title="Employe Id" id="employeeId" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.employeeId} onKeyPress={this.hideEmployeeId}  label="Employee Id" className="w-100" name="employeeId" title="Employe Id" id="employeeId" onChange={(event) => {
                                                         this.setState({
                                                             employeeId: event.target.value
                                                         })
@@ -239,7 +258,7 @@ export class InputIncrementLetter extends Component {
                                            </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="Designation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.designation} onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="Designation" onChange={(event) => {
                                                         this.setState({
                                                             designation: event.target.value
                                                         })
@@ -247,7 +266,7 @@ export class InputIncrementLetter extends Component {
 
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideCompanyLocation} label="Company Location" type="text" name="companyLocation" id="companyLocation" title="Company Location" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.companyLocation} onKeyPress={this.hideCompanyLocation} label="Company Location" type="text" name="companyLocation" id="companyLocation" title="Company Location" onChange={(event) => {
                                                         this.setState({
                                                             companyLocation: event.target.value
                                                         })
@@ -268,14 +287,14 @@ export class InputIncrementLetter extends Component {
 
                                             <div class="row">
                                                 <div class="col-6">
-                                                <MDBInput autocomplete="off" type="number" onKeyPress={this.hideSalaryIncremented} label="Salary Incremented" className="w-100" name="salaryIncremented" title="Salary Increment" id="salaryIncrement" onChange={(event) => {
+                                                <MDBInput autocomplete="off" value={this.state.salaryIncremented} type="number" onKeyPress={this.hideSalaryIncremented} label="Salary Incremented" className="w-100" name="salaryIncremented" title="Salary Increment" id="salaryIncrement" onChange={(event) => {
                                                         this.setState({
                                                             salaryIncremented: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-6">
-                                                <MDBInput autocomplete="off" onClick={this.hideIncrementInEffectDate} onKeyPress={this.hideIncrementInEffectDate} type="date" label="Increment In Effect Date" title="Increment In Effect Date" name="incrementInEffectDate" id="incrementInEffectDate" onChange={(event) => {
+                                                <MDBInput autocomplete="off" value={this.state.incrementInEffectDate} onClick={this.hideIncrementInEffectDate} onKeyPress={this.hideIncrementInEffectDate} type="date" label="Increment In Effect Date" title="Increment In Effect Date" name="incrementInEffectDate" id="incrementInEffectDate" onChange={(event) => {
                                                         this.setState({
                                                             incrementInEffectDate: event.target.value
                                                         });this.hideIncrementInEffectDate();
@@ -295,7 +314,7 @@ export class InputIncrementLetter extends Component {
                                            </div>
                                             <div className="row">
                                             <div class="col-12">
-                                                <MDBInput autocomplete="off" onKeyPress={this.hideAnnualCompensationYear}   type="number" label="Annual Compensation Year" title="Annual Compensation Year" name="annualCompensationYear" id="annualCompensationYear" onChange={(event) => {
+                                                <MDBInput autocomplete="off" value={this.state.annualCompensationYear} onKeyPress={this.hideAnnualCompensationYear}   type="number" label="Annual Compensation Year" title="Annual Compensation Year" name="annualCompensationYear" id="annualCompensationYear" onChange={(event) => {
                                                         this.setState({
                                                             annualCompensationYear: event.target.value
                                                         })
@@ -313,7 +332,7 @@ export class InputIncrementLetter extends Component {
                                                </div>
                                            </div>
 
-                                           <div className="row">
+                                          {/*  <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -332,7 +351,7 @@ export class InputIncrementLetter extends Component {
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
 
 
                                             <div className=" input-group w-50 container-fluid">

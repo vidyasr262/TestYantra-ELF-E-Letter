@@ -72,6 +72,12 @@ import './Trainingcommit.css'
       
      }
 
+      //edit
+  sendData(){
+    this.props.sendData(this.state.employee);
+    this.props.history.push('/InputTrainingCommitLetter');
+
+  }
 
     render() {
 
@@ -86,11 +92,11 @@ import './Trainingcommit.css'
         if (this.props.empData) {
         return (
             <div id='container-id'>
-                <Home buttonShow={true}  showWatermark={(data)=>this.setState({waterMark:data})} setHeader={(data)=>this.print()} />
+                <Home buttonShow={true}  showWatermark={(data)=>this.setState({waterMark:data})} sendData={()=>this.sendData()} setHeader={(data)=>this.print()} />
                 <div className="card"  style={{ marginTop: '145px' }} id="AFourFirstPage">
                         <div className="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
 <img className="tyHeader" src={TyHeader}></img>
 
@@ -98,7 +104,7 @@ import './Trainingcommit.css'
 
 
                             
-             {this.state.employee.withWaterMark? <div  className="waterMark">
+             {this.state.waterMark? <div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>
@@ -153,7 +159,7 @@ import './Trainingcommit.css'
                                 <br />
                                 <br />
                                 <br />
-                                {this.state.employee.withHeader?<div className="footer" style={{marginLeft: '-103px',marginTop: '-19px'}}>
+                                {this.state.waterMark?<div className="footer" style={{marginLeft: '-103px',marginTop: '-19px'}}>
                
                <img style={{width: '1160px',
    height: '95px'}} src={TyFooter}></img>
@@ -177,14 +183,14 @@ import './Trainingcommit.css'
                 <div className="card" id="AFourPage">
                     <div className="card-body pb-0"> 
 
-                    {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-53px' }}>
+                    {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-53px' }}>
 
 <img className="tyHeader" src={TyHeader}></img>
 
 </div> : null}
 
                         
-             {this.state.employee.withWaterMark? <div  className="waterMark">
+             {this.state.waterMark? <div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>
@@ -225,7 +231,7 @@ import './Trainingcommit.css'
                                 </ol>
                             </ol>
                         </div>
-                        {this.state.employee.withHeader?<div className="footer" style={this.state.pix?{marginLeft: '-103px',marginTop: '170px'}:{marginLeft: '-103px',marginTop: '158px'}}>
+                        {this.state.waterMark?<div className="footer" style={this.state.pix?{marginLeft: '-103px',marginTop: '170px'}:{marginLeft: '-103px',marginTop: '158px'}}>
                
                <img style={{width: '1160px',
    height: '95px'}} src={TyFooter}></img>
@@ -244,14 +250,14 @@ import './Trainingcommit.css'
                 <div className="card" id="AFourPage">
                     <div className="card-body" >
 
-                    {this.state.employee.withHeader?  <header className="header" style={this.state.pix?{marginLeft: '-115px',marginTop: '-95px'}:{marginLeft: '-115px',marginTop: '-115px'}}>
+                    {this.state.waterMark?  <header className="header" style={this.state.pix?{marginLeft: '-115px',marginTop: '-95px'}:{marginLeft: '-115px',marginTop: '-115px'}}>
                
                <img  style={{width: '1160px',
    height: '95px'}} src={TyHeader}></img>
 
              </header>:null}
                         
-             {this.state.employee.withWaterMark? <div  className="waterMark">
+             {this.state.waterMark? <div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>
@@ -285,7 +291,7 @@ import './Trainingcommit.css'
                     <br/>
                     <br/>
                   
-                    {this.state.employee.withHeader?<div className="footer" style={this.state.pix?{marginLeft: '-83px',marginTop: '208px'}:{marginLeft: '-83px',marginTop: '195px'}}>
+                    {this.state.waterMark?<div className="footer" style={this.state.pix?{marginLeft: '-83px',marginTop: '208px'}:{marginLeft: '-83px',marginTop: '195px'}}>
                
                <img style={{width: '1160px',
    height: '95px'}} src={TyFooter}></img>

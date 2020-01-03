@@ -18,12 +18,9 @@ export class HRLetter extends Component {
     }
   }
 
-  componentWillUnmount()
-  {
-    localStorage.setItem("checkHR",false)
-  }
+ 
   componentDidMount() {
-    localStorage.setItem("checkHR",true)
+    
     this.setState({
       employee: this.props.empData,
     })
@@ -76,6 +73,8 @@ export class HRLetter extends Component {
     }
    
   }
+
+  //edit
   sendData(){
     this.props.sendData(this.state.employee);
     this.props.history.push('/hr');
@@ -103,7 +102,7 @@ export class HRLetter extends Component {
 
               <div>
 
-                {this.state.employee.withHeader ? <header className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                {this.state.waterMark ? <header className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                   <img className="tyHeader" src={TyHeader}></img>
 
@@ -122,7 +121,7 @@ export class HRLetter extends Component {
                 <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }}>&nbsp;</p>
                 <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY"><span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to inform that </span><span ><strong>{this.state.employee.salute} {this.state.employee.employeeName} </strong></span><span >(Employee ID: {this.state.employee.employeeId}) is an employee of Test Yantra Software Solutions (India) Pvt Ltd from </span><span ><strong>{joiningDate.getDate()}<sup>{this.nth(joiningDate.getDate())}</sup>&nbsp;{moment(this.state.employee.joiningDate).format('MMMM YYYY')}</strong></span><span > to till Date. {this.props.empData.gender.gender1} is designated as {this.state.employee.designation}. </span></p>
                 <p style={{ textAlign: 'justify', paddingLeft: 30, paddingRight: 30 }} align="JUSTIFY">&nbsp;</p>
-                {this.state.employee.withWaterMark ? <div className="waterMark">
+                {this.state.waterMark ? <div className="waterMark">
                   <span style={{
                     color: '#263248', fontSize: '91px',
                     fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -155,7 +154,7 @@ export class HRLetter extends Component {
               </div>
 
 
-              {this.state.employee.withHeader ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '200px' }}>
+              {this.state.waterMark ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '200px' }}>
 
                 <img className="tyfooter" src={TyFooter}></img>
 

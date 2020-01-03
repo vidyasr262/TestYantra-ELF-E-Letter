@@ -227,11 +227,23 @@ export class InputCertificateLetter extends Component {
 
      }
 
+     setValue=(data)=>{
+        console.log("data is ",data)
+    this.setState({
+        employeeName: data.employeeName,
+        certificateType:data.certificateType,
+       
+    })
 
+}
+//
 
 
 
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <Home buttonShow={false} />
@@ -247,7 +259,7 @@ export class InputCertificateLetter extends Component {
                                         <form onSubmit={this.pass}>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.employeeName} onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
                                                         })
@@ -364,7 +376,7 @@ export class InputCertificateLetter extends Component {
                                               
                                                {this.state.showOthers?
                                                  <div class="col-md-12">
-                                                 <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName} label="OtherCertificate" className="w-100" name="otherCertificate" title="otherCertificate" id="otherCertificate" onChange={(event) => {
+                                                 <MDBInput autocomplete="off" value={this.state.certificateType} onKeyPress={this.hideEmployeeName} label="OtherCertificate" className="w-100" name="otherCertificate" title="otherCertificate" id="otherCertificate" onChange={(event) => {
                                                      this.setState({
                                                         certificateType: event.target.value
                                                      })
@@ -375,7 +387,7 @@ export class InputCertificateLetter extends Component {
                                       
                                                 </div>
 
-                                                <div className="row">
+                                               {/*  <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -395,7 +407,7 @@ export class InputCertificateLetter extends Component {
 
                                                     </div>
                                             </div>
-
+ */}
                                                 <div className=" input-group w-50 container-fluid">
                                                     <MDBBtn outline style={{marginTop: '20px'}} id="generate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>
                                                 </div>

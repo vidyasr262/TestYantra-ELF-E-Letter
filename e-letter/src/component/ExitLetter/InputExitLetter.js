@@ -17,6 +17,7 @@ export class InputExitLetter extends Component {
             joiningDate: '',
             exitDate: '',
             date: '',
+            location: '',
             withWaterMark:false,
             withHeader:false,
             gender: {
@@ -219,7 +220,27 @@ export class InputExitLetter extends Component {
         })
     }
 
+    //edit
+setValue=(data)=>{
+    console.log("data is ",data)
+this.setState({
+    salute: data.salute,
+    employeeName: data.employeeName,
+    employeeId:data.employeeId,
+    designation: data.designation,
+    joiningDate: data.joiningDate,
+    exitDate: data.exitDate,
+    location: data.location,
+   
+})
+
+}
+//
+
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <Home buttonShow={false} />
@@ -235,7 +256,7 @@ export class InputExitLetter extends Component {
                                         <form onSubmit={this.pass}>
                                             <div class="row">
                                                 <div className="col-md-3" style={{ paddingTop: '25px'}}>
-                                                    <select class="browser-default custom-select" autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
+                                                    <select class="browser-default custom-select" value={this.state.salute} autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
                                                         this.setState({
                                                             salute: event.target.value
                                                         })
@@ -246,7 +267,7 @@ export class InputExitLetter extends Component {
                                                     </select>
                                                 </div>
                                                 <div class="col-9">
-                                                    <MDBInput autocomplete="off"  onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.employeeName} onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
                                                         })
@@ -262,14 +283,14 @@ export class InputExitLetter extends Component {
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off"  type="date" onClick={()=>{this.hideshowJoiningDate();this.hideInvalidJoin()}}  onKeyPress={()=>{this.hideshowJoiningDate();this.hideInvalidJoin()}} label="Joined Date" title="Joining Date" name="JoiningDate" id="joiningDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.joiningDate} type="date" onClick={()=>{this.hideshowJoiningDate();this.hideInvalidJoin()}}  onKeyPress={()=>{this.hideshowJoiningDate();this.hideInvalidJoin()}} label="Joined Date" title="Joining Date" name="JoiningDate" id="joiningDate" onChange={(event) => {
                                                         this.setState({
                                                             joiningDate: event.target.value
                                                         });this.hideshowJoiningDate();this.hideInvalidJoin();
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off"  type="date"  onClick={()=>{this.hideExitDate();this.hideInvalidDate()}} onKeyPress={()=>{this.hideExitDate();this.hideInvalidDate()}} label="Exit Date" title="Exit Date" name="exitDate" id="exitDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.exitDate} type="date"  onClick={()=>{this.hideExitDate();this.hideInvalidDate()}} onKeyPress={()=>{this.hideExitDate();this.hideInvalidDate()}} label="Exit Date" title="Exit Date" name="exitDate" id="exitDate" onChange={(event) => {
                                                         this.setState({
                                                             exitDate: event.target.value
                                                         });this.hideExitDate();this.hideInvalidDate()
@@ -289,14 +310,14 @@ export class InputExitLetter extends Component {
                                            </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideDesignation}   label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.designation} onKeyPress={this.hideDesignation}   label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
                                                         this.setState({
                                                             designation: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideCompanyLocation} label="Company Location" className="w-100" name="commpanyLocation" title="Company Location" id="companyLocation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.location} onKeyPress={this.hideCompanyLocation} label="Company Location" className="w-100" name="commpanyLocation" title="Company Location" id="companyLocation" onChange={(event) => {
                                                         this.setState({
                                                             location: event.target.value
                                                         })
@@ -312,7 +333,7 @@ export class InputExitLetter extends Component {
                                                </div>
                                            </div>
 
-                                           <div className="row">
+                                           {/* <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -331,7 +352,7 @@ export class InputExitLetter extends Component {
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
 
 
                                             <div className=" input-group w-50 container-fluid">

@@ -150,7 +150,22 @@ export class InputDesignationLetter extends Component {
 
     }
 
+    //edit
+setValue=(data)=>{
+    console.log("data is ",data)
+this.setState({
+    employeeName: data.employeeName,
+    employeeId:data.employeeId,
+    newDesignation: data.newDesignation,
+   
+})
+
+}
+// 
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <Home buttonShow={false}/>
@@ -166,14 +181,14 @@ export class InputDesignationLetter extends Component {
                                         <form onSubmit={this.pass}>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName}   label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.employeeName} onKeyPress={this.hideEmployeeName}   label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
-                                                <MDBInput autocomplete="off"  onKeyPress={this.hideEmployeeId}  label="Employee Id" className="w-100" name="employeeId" title="Employe Id" id="employeeId" onChange={(event) => {
+                                                <MDBInput autocomplete="off" value={this.state.employeeId} onKeyPress={this.hideEmployeeId}  label="Employee Id" className="w-100" name="employeeId" title="Employe Id" id="employeeId" onChange={(event) => {
                                                         this.setState({
                                                             employeeId: event.target.value
                                                         })
@@ -194,7 +209,7 @@ export class InputDesignationLetter extends Component {
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                <MDBInput autocomplete="off" onKeyPress={this.hideNewDesignation}   label="New Designation" type="text" name="newDesignation" id="newDesignation" title="New Designation" onChange={(event) => {
+                                                <MDBInput autocomplete="off" value={this.state.newDesignation} onKeyPress={this.hideNewDesignation}   label="New Designation" type="text" name="newDesignation" id="newDesignation" title="New Designation" onChange={(event) => {
                                                         this.setState({
                                                             newDesignation: event.target.value
                                                         })
@@ -206,7 +221,7 @@ export class InputDesignationLetter extends Component {
 
                                           
                                            
-                                            <div className="row">
+                                            {/* <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -225,7 +240,7 @@ export class InputDesignationLetter extends Component {
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
  
 
 

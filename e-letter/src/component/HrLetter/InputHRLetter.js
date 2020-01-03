@@ -221,15 +221,20 @@ export class InputHRLetter extends Component {
        this.props.history.push('/hrLetter')
 
     }
+
+    //edit
 setValue=(data)=>{
-        console.log("data is=>>>>>>",data)
+        console.log("data is ",data)
     this.setState({
+        salute: data.salute,
         employeeName: data.employeeName,
         employeeId:data.employeeId,
-        designation: data.designation
+        designation: data.designation,
+        joiningDate: data.joiningDate
     })
 
 }
+//
     render() {
         if(this.props.getData!==''){
             this.setValue(this.props.getData)
@@ -251,7 +256,7 @@ setValue=(data)=>{
                                             <div className="row">
 
                                             <div className="col-md-3" style={{ paddingTop: '25px' }}>
-                                                    <select class="browser-default custom-select" autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
+                                                    <select class="browser-default custom-select" autocomplete="off"   value={this.state.salute} name="salutation" title="salutation" id="salutation" onChange={(event) => {
                                                         this.setState({
                                                             salute: event.target.value
                                                         })
@@ -308,7 +313,7 @@ setValue=(data)=>{
 
                                             <div className="row">
                                                 <div className="col-12">
-                                                    <MDBInput autocomplete="off"  type="date" onKeyPress={()=>{this.hideJoiningDate();this.hideInvaliddate()}}  onClick={()=>{this.hideJoiningDate();this.hideInvaliddate()}} label="Joining Date" title="Joining Date" name="Joining Date" id="joiningDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off"  type="date" value={this.state.joiningDate} onKeyPress={()=>{this.hideJoiningDate();this.hideInvaliddate()}}  onClick={()=>{this.hideJoiningDate();this.hideInvaliddate()}} label="Joining Date" title="Joining Date" name="Joining Date" id="joiningDate" onChange={(event) => {
                                                         this.setState({
                                                             joiningDate: event.target.value
                                                         });this.hideJoiningDate();this.hideInvaliddate();
@@ -325,7 +330,7 @@ setValue=(data)=>{
                                             </div>
 
 
-                                            <div className="row">
+                                          {/*   <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -346,7 +351,7 @@ setValue=(data)=>{
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
                                     
                                             <div className=" input-group w-50 container-fluid">
                                                 <MDBBtn outline type="submit" id="generate" outline className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>

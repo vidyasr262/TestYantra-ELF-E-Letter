@@ -196,8 +196,25 @@ export class InputConfirmationLetter extends Component {
     }
 
 
+     //edit
+setValue=(data)=>{
+    console.log("data is ",data)
+this.setState({
+    salute: data.salute,
+    employeeName: data.employeeName,
+    employeeId:data.employeeId,
+    designation: data.designation,
+    joiningDate: data.joiningDate
+})
+
+}
+//
+
 
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <Home buttonShow={false} />
@@ -213,14 +230,14 @@ export class InputConfirmationLetter extends Component {
                                         <form onSubmit={this.pass}>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.employeeName} onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeId} label="Employee Id" className="w-100" name="employeeId" title="Employe Id" id="employeeId" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.employeeId} onKeyPress={this.hideEmployeeId} label="Employee Id" className="w-100" name="employeeId" title="Employe Id" id="employeeId" onChange={(event) => {
                                                         this.setState({
                                                             employeeId: event.target.value
                                                         })
@@ -237,7 +254,7 @@ export class InputConfirmationLetter extends Component {
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideJoiningDate} onClick={this.hideJoiningDate} type="date" label="Joined Date" title="Joining Date" name="joiningDate" id="joiningDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.joiningDate} onKeyPress={this.hideJoiningDate} onClick={this.hideJoiningDate} type="date" label="Joined Date" title="Joining Date" name="joiningDate" id="joiningDate" onChange={(event) => {
                                                         this.setState({
                                                             joiningDate: event.target.value
                                                         }); this.hideJoiningDate();
@@ -259,7 +276,7 @@ export class InputConfirmationLetter extends Component {
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.designation} onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
                                                         this.setState({
                                                             designation: event.target.value
                                                         })
@@ -271,7 +288,7 @@ export class InputConfirmationLetter extends Component {
                                             </div>
                                             {this.state.showDesignation ? <div id="errordiv" className="container-fluid p-0">Please fill out Designation field * </div> : null}
 
-                                            <div className="row">
+                                            {/* <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -290,7 +307,7 @@ export class InputConfirmationLetter extends Component {
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
 
 
                                             <div className=" input-group w-50 container-fluid">

@@ -72,7 +72,12 @@ export class RelivingLetter extends Component {
         }
       }
 
+ //edit
+ sendData(){
+    this.props.sendData(this.state.employee);
+    this.props.history.push('/InputRelivingLetter');
 
+  } 
     render() {
 
          let toDate=new Date();
@@ -85,11 +90,11 @@ export class RelivingLetter extends Component {
         if (this.props.empData) {
             return (
                 <div>
-                    <Home buttonShow={true} showWatermark={(data)=>this.setState({waterMark:data})} setHeader={(data)=>this.print()} />
+                    <Home buttonShow={true} showWatermark={(data)=>this.setState({waterMark:data})} sendData={()=>this.sendData()} setHeader={(data)=>this.print()} />
                     <div className="card" id="AFourPage" style={{ marginTop: '100px' }}>
                         <div className="card-body"> 
 
-                        {this.state.employee.withHeader?  <header className="header" style={{marginLeft: '-115px',marginTop: '-115px'}}>
+                        {this.state.waterMark?  <header className="header" style={{marginLeft: '-115px',marginTop: '-115px'}}>
                
                <img  style={{width: '1160px',
    height: '95px'}} src={TyHeader}></img>
@@ -97,7 +102,7 @@ export class RelivingLetter extends Component {
              </header>:null}
 
  
-                         {this.state.employee.withWaterMark? <div  className="waterMark">
+                         {this.state.waterMark? <div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>
@@ -150,7 +155,7 @@ export class RelivingLetter extends Component {
                             <br />
                           
                            
-                            {this.state.employee.withHeader?<div className="footer" style={{marginLeft: '-103px',marginTop: '45px'}}>
+                            {this.state.waterMark?<div className="footer" style={{marginLeft: '-103px',marginTop: '45px'}}>
                
                <img style={{width: '1160px',
    height: '95px'}} src={TyFooter}></img>
@@ -163,14 +168,14 @@ export class RelivingLetter extends Component {
                     <div className="card" id="AFourFirstPage" style={{marginTop:'10px'}}>
                         <div className="card-body">
 
-                        {this.state.employee.withHeader?  <header className="header" style={this.state.pix?{marginLeft: '-115px',marginTop: '-20px'}:{marginLeft: '-115px',marginTop: '-115px'}}>
+                        {this.state.waterMark?  <header className="header" style={this.state.pix?{marginLeft: '-115px',marginTop: '-20px'}:{marginLeft: '-115px',marginTop: '-115px'}}>
                
                <img  style={{width: '1160px',
    height: '95px'}} src={TyHeader}></img>
 
              </header>:null}
 
-                        {this.state.employee.withWaterMark? <div  className="waterMark">
+                        {this.state.waterMark? <div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>

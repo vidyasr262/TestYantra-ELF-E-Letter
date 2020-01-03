@@ -71,7 +71,13 @@ export class ExitLetter extends Component {
         }
       }
    
-   
+   //edit
+  sendData(){
+    this.props.sendData(this.state.employee);
+    this.props.history.push('/InputExitLetter');
+
+  }
+ 
    
     render() {
 
@@ -85,18 +91,18 @@ export class ExitLetter extends Component {
         if (this.props.empData) {
         return (
             <div id="qwerty">
-                <Home buttonShow={true} showWatermark={(data)=>this.setState({waterMark:data})} setHeader={(data)=>this.print()}  />
+                <Home buttonShow={true} showWatermark={(data)=>this.setState({waterMark:data})} sendData={()=>this.sendData()} setHeader={(data)=>this.print()}  />
                 <div className="card" id="AFourPage" style={{ marginTop: '100px' }}>
                     <div className="card-body">
 
 
-                    {this.state.employee.withHeader?  <header className="header" style={{marginLeft: '-115px',marginTop: '-115px'}}>
+                    {this.state.waterMark?  <header className="header" style={{marginLeft: '-115px',marginTop: '-115px'}}>
                
                <img  style={{width: '1160px',
    height: '95px'}} src={TyHeader}></img>
 
              </header>:null}
-                    {this.state.employee.withWaterMark? <div  className="waterMark">
+                    {this.state.waterMark? <div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>
@@ -399,7 +405,7 @@ export class ExitLetter extends Component {
                         </div>
                     </div>
                 </div>
-                {this.state.employee.withHeader?<footer className="footer" style={{marginLeft: '-141px',marginTop: '-115px'}}>
+                {this.state.waterMark?<footer className="footer" style={{marginLeft: '-141px',marginTop: '-115px'}}>
                
                <img style={{width: '1160px',
    height: '95px'}} src={TyFooter}></img>

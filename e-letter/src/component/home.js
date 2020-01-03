@@ -158,7 +158,9 @@ import { Thumbnail } from 'react-bootstrap';
     {this.props.buttonShow?<button onClick={()=>{this.sendBack()}} className="btn btn-warning">Edit</button>:null}
     {this.props.buttonShow?<MailComponent/>:null}
     
-    {   this.props.buttonShow?<img onClick={this.printPreview} style={{ width: 38, cursor: 'pointer', borderRadius: '100px' }} src={printer} />:null}
+    {/* {   this.props.buttonShow?<img onClick={this.printPreview} style={{ width: 38, cursor: 'pointer', borderRadius: '100px' }} src={printer} />:null} */}
+
+    {  this.props.buttonShow?<Example showWatermark={this.showWatermark.bind()  }/>:null}
     <div style={{marginTop: '-2px'}} class="nav-item nav-item avatar dropdown">
    
               <div class="nav-link new-link">

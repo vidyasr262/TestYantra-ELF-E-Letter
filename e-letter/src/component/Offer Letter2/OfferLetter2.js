@@ -36,6 +36,12 @@ export class Offer2 extends Component {
         }
     }
 
+     //edit
+  sendData(){
+    this.props.sendData(this.state.employee);
+    this.props.history.push('/InputOfferLetter2');
+
+  }
 
 
 
@@ -52,16 +58,16 @@ export class Offer2 extends Component {
         console.log("wawda")
         return (
             <div id="qwerty">
-                <Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} />
+                <Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} sendData={()=>this.sendData()} />
                 <div class="card" style={{ marginTop: '100px' }} id="AFourPage">
                     <div class="card-body pb-0">
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
                
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -139,7 +145,7 @@ export class Offer2 extends Component {
                     <div class="card-body">
                         <div className="card-body">
 
-                            {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                            {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                                 <img className="tyHeader" src={TyHeader}></img>
 
@@ -313,13 +319,13 @@ export class Offer2 extends Component {
                 <div class="card" id="pageA4">
                     <div class="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
 
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -368,13 +374,13 @@ export class Offer2 extends Component {
                 <div class="card" id="pageA4">
                     <div class="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
 
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -431,12 +437,12 @@ export class Offer2 extends Component {
                 <div class="card" id="pageA4">
                     <div class="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -486,14 +492,14 @@ export class Offer2 extends Component {
                 <div class="card" id="pageA4">
                     <div class="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
 
 
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -547,13 +553,13 @@ export class Offer2 extends Component {
                 <div class="card" id="pageA4">
                     <div class="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
 
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -614,13 +620,13 @@ export class Offer2 extends Component {
                 <div class="card" id="pageA4">
                     <div class="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
 
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -677,12 +683,12 @@ export class Offer2 extends Component {
                 <div class="card" id="pageA4">
                     <div class="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -744,13 +750,13 @@ export class Offer2 extends Component {
                 <div class="card" id="pageA4">
                     <div class="card-body">
 
-                        {this.state.employee.withHeader ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                        {this.state.waterMark ? <div className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                             <img className="tyHeader" src={TyHeader}></img>
 
                         </div> : null}
 
-                        {this.state.employee.withWaterMark ? <div className="waterMark">
+                        {this.state.waterMark ? <div className="waterMark">
                             <span style={{
                                 color: '#263248', fontSize: '91px',
                                 fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -815,7 +821,7 @@ export class Offer2 extends Component {
                         </div>
                     </div>
                 </div>
-                {this.state.employee.withHeader ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '200px' }}>
+                {this.state.waterMark ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '200px' }}>
 
                     <img className="tyfooter" src={TyFooter}></img>
 

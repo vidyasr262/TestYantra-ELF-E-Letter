@@ -67,6 +67,13 @@ export  class Intent extends Component {
        
       }
 
+      //edit
+  sendData(){
+    this.props.sendData(this.state.employee);
+    this.props.history.push('/InputIntentLetter');
+
+  }
+
     render() {
 
         let SysDate = new Date();
@@ -89,13 +96,13 @@ export  class Intent extends Component {
 
 
                 <div>
-                    <Home buttonShow={true}  showWatermark={(data)=>this.setState({waterMark:data})} setHeader={(data)=>this.print()} />
+                    <Home buttonShow={true}  showWatermark={(data)=>this.setState({waterMark:data})} sendData={()=>this.sendData()} setHeader={(data)=>this.print()} />
 
                     <div class="card" id="AFourPage" style={{ marginTop: '100px' }}>
                         <div class="card-body">
 
 
-                        {this.state.employee.withHeader?  <header className="header" style={{marginLeft: '-115px',marginTop: '-115px'}}>
+                        {this.state.waterMark?  <header className="header" style={{marginLeft: '-115px',marginTop: '-115px'}}>
                
                <img  style={{width: '1160px',
    height: '95px'}} src={TyHeader}></img>
@@ -104,7 +111,7 @@ export  class Intent extends Component {
 
  
 
-                        {this.state.employee.withWaterMark? <div  className="waterMark">
+                        {this.state.waterMark? <div  className="waterMark">
                 <span style={{color:'#263248',fontSize: '91px',
     fontFamily: 'sans-serif',position: 'absolute',opacity: '0.3',zIndex:'0'}}>TES<span style={{color: '#F8981C',fontSize: '91px',
     fontFamily: 'sans-serif',fontWeight: "600"}}>TY</span>ANTRA</span>
@@ -168,7 +175,7 @@ export  class Intent extends Component {
                         <div class="card-body">
 
     
-                        {this.state.employee.withHeader?  <header className="header" style={this.state.pix?{marginLeft: '-115px',marginTop: '-13px'}:{marginLeft: '-115px',marginTop: '-115px'}}>
+                        {this.state.waterMark?  <header className="header" style={this.state.pix?{marginLeft: '-115px',marginTop: '-13px'}:{marginLeft: '-115px',marginTop: '-115px'}}>
                
                <img  style={{width: '1160px',
    height: '95px'}} src={TyHeader}></img>

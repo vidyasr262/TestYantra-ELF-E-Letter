@@ -236,9 +236,29 @@ export class InputOffer2Letter extends Component {
         })
     }
 
+   //edit
+setValue=(data)=>{
+    console.log("data is ",data)
+this.setState({
+    salute: data.salute,
+    name: data.name,
+    fatherName: data.fatherName,
+    age: data.age,
+    address: data.address,
+    designation: data.designation,
+    offerValidity: data.offerValidity,
+    companyLocation: data.companyLocation,
+    salary: data.salary,
    
+})
+
+}
+//
 
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <Home buttonShow={false} />
@@ -256,7 +276,7 @@ export class InputOffer2Letter extends Component {
                                             <div class="row">
 
                                             <div className="col-md-2" style={{ paddingTop: '25px' }}>
-                                                    <select style={{width: '70px'}} class="browser-default custom-select" autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
+                                                    <select style={{width: '70px'}} value={this.state.salute} class="browser-default custom-select" autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
                                                         this.setState({
                                                             salute: event.target.value
                                                         })
@@ -267,7 +287,7 @@ export class InputOffer2Letter extends Component {
                                                     </select>
                                                 </div>
                                                 <div class="col-5">
-                                                    <MDBInput autocomplete="off" label="Name" type="text" name="name" id="name" title="name" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.name} label="Name" type="text" name="name" id="name" title="name" onChange={(event) => {
                                                         this.setState({
                                                             name: event.target.value
                                                         });
@@ -275,7 +295,7 @@ export class InputOffer2Letter extends Component {
                                                     }} />
                                                 </div>
                                                 <div className="col-5">
-                                                    <MDBInput autocomplete="off" label="Father Name" type="text" name="fatherName" id="fatherName" title="Company Location" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.fatherName} label="Father Name" type="text" name="fatherName" id="fatherName" title="Company Location" onChange={(event) => {
                                                         this.setState({
                                                             fatherName: event.target.value
                                                         }); this.hideFatherName();
@@ -298,14 +318,14 @@ export class InputOffer2Letter extends Component {
 
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <MDBInput autocomplete="off" label="Address" type="text" name="address" id="address" title="address" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.address} label="Address" type="text" name="address" id="address" title="address" onChange={(event) => {
                                                         this.setState({
                                                             address: event.target.value
                                                         }); this.hideAddress()
                                                     }} />
                                                 </div>
                                                 <div className="col-6">
-                                                    <MDBInput autocomplete="off" label="Age" type="text" name="age" id="age" title="Age" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.age} label="Age" type="text" name="age" id="age" title="Age" onChange={(event) => {
                                                         this.setState({
                                                             age: event.target.value
                                                         }); this.hideAge()
@@ -328,14 +348,14 @@ export class InputOffer2Letter extends Component {
 
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <MDBInput autocomplete="off" label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.designation} label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
                                                         this.setState({
                                                             designation: event.target.value
                                                         });this.hideDesignation()
                                                     }} />
                                                 </div>
                                                 <div className="col-6">
-                                                    <MDBInput autocomplete="off" label="Company Location" type="text" name="companyLocation" id="companyLocation" title="companyLocation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.companyLocation} label="Company Location" type="text" name="companyLocation" id="companyLocation" title="companyLocation" onChange={(event) => {
                                                         this.setState({
                                                             companyLocation: event.target.value
                                                         });this.hideCompanyLocation()
@@ -357,14 +377,14 @@ export class InputOffer2Letter extends Component {
 
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <MDBInput autocomplete="off" label="Salary" type="text" name="salary" id="salary" title="salary" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.salary} label="Salary" type="text" name="salary" id="salary" title="salary" onChange={(event) => {
                                                         this.setState({
                                                             salary: event.target.value
                                                         });this.hideSalary();
                                                     }} />
                                                 </div>
                                                 <div class="col-6">
-                                                    <MDBInput autocomplete="off" onClick={() => { this.hideOfferValidity(); this.hideInvalidDate() }} onKeyPress={() => { this.hideInvalidDate() }} type="date" label="Offer Validity" title="Offer Validity" name="offerValidity" id="offerValidity" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.offerValidity} onClick={() => { this.hideOfferValidity(); this.hideInvalidDate() }} onKeyPress={() => { this.hideInvalidDate() }} type="date" label="Offer Validity" title="Offer Validity" name="offerValidity" id="offerValidity" onChange={(event) => {
                                                         this.setState({
                                                             offerValidity: event.target.value
                                                         }); this.hideOfferValidity(); this.hideInvalidDate();
@@ -383,7 +403,7 @@ export class InputOffer2Letter extends Component {
                                                 </div>
                                             </div>
 
-                                            <div className="row">
+                                            {/* <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -402,7 +422,7 @@ export class InputOffer2Letter extends Component {
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
 
 
 

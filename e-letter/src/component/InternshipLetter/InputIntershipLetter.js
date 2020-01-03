@@ -204,11 +204,29 @@ export class InputIntershipLetter extends Component {
      }
 
 
+//edit
+setValue=(data)=>{
+    console.log("data is ",data)
+this.setState({
+    salute: data.salute,
+    internName: data.internName,
+    internType:data.internType,
+    internId: data.internId,
+    companyLocation: data.companyLocation,
+    startDate: data.startDate,
+    endDate: data.endDate,
+    // companyLocation: data.companyLocation
+})
 
+}
+//
 
 
 
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <Home buttonShow={false} />
@@ -225,7 +243,7 @@ export class InputIntershipLetter extends Component {
                                             <div class="row">
 
                                                 <div className="col-md-3" style={{ paddingTop: '25px' }}>
-                                                    <select class="browser-default custom-select" autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
+                                                    <select class="browser-default custom-select" value={this.state.salute} autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
                                                         this.setState({
                                                             salute: event.target.value
                                                         })
@@ -238,7 +256,7 @@ export class InputIntershipLetter extends Component {
                                                 </div>
 
                                                 <div class="col-md-9">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideinternName} label="Intern Name" className="w-100" name="internName" title="Intern Name" id="internName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.internName} onKeyPress={this.hideinternName} label="Intern Name" className="w-100" name="internName" title="Intern Name" id="internName" onChange={(event) => {
                                                         this.setState({
                                                             internName: event.target.value
                                                         })
@@ -255,7 +273,7 @@ export class InputIntershipLetter extends Component {
                                            </div>
                                            <div class="row">
                                                 <div class="col-md-12">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideinternType} label="Intership Type" className="w-100" name="internType" title="Employe Type" id="internType" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.internType} onKeyPress={this.hideinternType} label="Intership Type" className="w-100" name="internType" title="Employe Type" id="internType" onChange={(event) => {
                                                         this.setState({
                                                             internType: event.target.value
                                                         })
@@ -271,14 +289,14 @@ export class InputIntershipLetter extends Component {
 
                                            <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideinternId} label="Intern Id" className="w-100" name="internId" title="Employe Id" id="internId" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.internId} onKeyPress={this.hideinternId} label="Intern Id" className="w-100" name="internId" title="Employe Id" id="internId" onChange={(event) => {
                                                         this.setState({
                                                             internId: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hidecompanyLocation} label="companyLocation" type="text" name="companyLocation" id="companyLocation" title="companyLocation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.companyLocation} onKeyPress={this.hidecompanyLocation} label="companyLocation" type="text" name="companyLocation" id="companyLocation" title="companyLocation" onChange={(event) => {
                                                         this.setState({
                                                             companyLocation: event.target.value
                                                         })
@@ -299,14 +317,14 @@ export class InputIntershipLetter extends Component {
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onClick={this.hidestartDate} onKeyPress={this.hidestartDate} type="date" label="Intership Start Date" title="Joining Date" name="startDate" id="startDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.startDate} onClick={this.hidestartDate} onKeyPress={this.hidestartDate} type="date" label="Intership Start Date" title="Joining Date" name="startDate" id="startDate" onChange={(event) => {
                                                         this.setState({
                                                             startDate: event.target.value
                                                         });this.hidestartDate();
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onClick={()=>{this.hideendDate();this.hideInvalidDate()}} onKeyPress={()=>{this.hideendDate();this.hideInvalidDate()}}  type="date" label="Intership End Date" title="endDate" name="endDate" id="endDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.endDate} onClick={()=>{this.hideendDate();this.hideInvalidDate()}} onKeyPress={()=>{this.hideendDate();this.hideInvalidDate()}}  type="date" label="Intership End Date" title="endDate" name="endDate" id="endDate" onChange={(event) => {
                                                         this.setState({
                                                             endDate: event.target.value
                                                         });this.hideendDate();this.hideInvalidDate()
@@ -325,7 +343,7 @@ export class InputIntershipLetter extends Component {
                                                </div>
                                            </div>
                                             
-                                           <div className="row">
+                                          {/*  <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -344,7 +362,7 @@ export class InputIntershipLetter extends Component {
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
 
 
                                             <div className=" input-group w-50 container-fluid">

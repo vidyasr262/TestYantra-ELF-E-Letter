@@ -197,11 +197,28 @@ export default class InputIntentLetter extends Component {
 
      }
 
+       //edit
+setValue=(data)=>{
+    console.log("data is ",data)
+this.setState({
+    employeeName: data.employeeName,
+    designation: data.designation,
+    companyLocation: data.companyLocation,
+    reportingManager: data.reportingManager,
+    joiningDate: data.joiningDate,
+    trainingStartDate: data.trainingStartDate
+})
+
+}
+//
 
 
 
 
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <div>
@@ -219,14 +236,14 @@ export default class InputIntentLetter extends Component {
 
                                                 <div class="row">
                                                     <div class="col-6">
-                                                        <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName} label="Employee Name" type="text" name="employeeName" id="employeeName" title="employeeName" onChange={(event) => {
+                                                        <MDBInput autocomplete="off" value={this.state.employeeName} onKeyPress={this.hideEmployeeName} label="Employee Name" type="text" name="employeeName" id="employeeName" title="employeeName" onChange={(event) => {
                                                             this.setState({
                                                                 employeeName: event.target.value
                                                             })
                                                         }} />
                                                     </div>
                                                     <div className="col-6">
-                                                        <MDBInput autocomplete="off" onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="Designation" onChange={(event) => {
+                                                        <MDBInput autocomplete="off" value={this.state.designation} onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="Designation" onChange={(event) => {
                                                             this.setState({
                                                                 designation: event.target.value
                                                             })
@@ -248,14 +265,14 @@ export default class InputIntentLetter extends Component {
 
                                                 <div class="row">
                                                     <div class="col-6">
-                                                        <MDBInput autocomplete="off" onKeyPress={this.hideCompanyLocation} label="Company Location" type="text" id="companyLocation" title="companyLocation" onChange={(event) => {
+                                                        <MDBInput autocomplete="off" value={this.state.companyLocation} onKeyPress={this.hideCompanyLocation} label="Company Location" type="text" id="companyLocation" title="companyLocation" onChange={(event) => {
                                                             this.setState({
                                                                 companyLocation: event.target.value
                                                             })
                                                         }} />
                                                     </div>
                                                     <div className="col-6">
-                                                        <MDBInput autocomplete="off" onKeyPress={this.hidereportingManager} label="Reporting Manager" type="text" name="reportingManager" id="reportingManager" title="reportingManager" onChange={(event) => {
+                                                        <MDBInput autocomplete="off" value={this.state.reportingManager} onKeyPress={this.hidereportingManager} label="Reporting Manager" type="text" name="reportingManager" id="reportingManager" title="reportingManager" onChange={(event) => {
                                                             this.setState({
                                                                 reportingManager: event.target.value
                                                             })
@@ -276,7 +293,7 @@ export default class InputIntentLetter extends Component {
 
                                                 <div class="row">
                                                     <div className="col-12">
-                                                        <MDBInput autocomplete="off" onKeyPress={this.hideTrainingStartDate} label="Training Start Date" type="date" name="trainingStartDate" id="trainingStartDate" title="trainingStartDate"
+                                                        <MDBInput autocomplete="off" value={this.state.trainingStartDate} onKeyPress={this.hideTrainingStartDate} label="Training Start Date" type="date" name="trainingStartDate" id="trainingStartDate" title="trainingStartDate"
                                                             onChange={(event) => {
                                                                 this.setState({
                                                                     trainingStartDate: event.target.value
@@ -290,7 +307,7 @@ export default class InputIntentLetter extends Component {
 
                                                 </div>
                                                
-                                                <div className="row">
+                                                {/* <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -309,7 +326,7 @@ export default class InputIntentLetter extends Component {
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
 
 
 

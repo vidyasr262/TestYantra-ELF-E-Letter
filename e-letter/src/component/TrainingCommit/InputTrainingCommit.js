@@ -268,7 +268,31 @@ hideCompanyLocation = () => {
 
     }
 
+     //edit
+setValue=(data)=>{
+    console.log("data is ",data)
+this.setState({
+    salute: data.salute,
+    employeeName: data.employeeName,
+    employeeId:data.employeeId,
+    designation: data.designation,
+    joiningDate: data.joiningDate,
+    courseName: data.courseName,
+    companyLocation: data.companyLocation,
+    trainingStartDate: data.trainingStartDate,
+    trainingEndDate: data.trainingEndDate,
+    branchName: data.branchName,
+    branchLocation: data.branchLocation,
+    
+})
+
+}
+//
+
     render() {
+        if(this.props.getData!==''){
+            this.setValue(this.props.getData)
+        }
         return (
             <div>
                 <Home buttonShow={false} />
@@ -284,7 +308,7 @@ hideCompanyLocation = () => {
                                         <form onSubmit={this.pass}>
                                             <div class="row">
                                             <div className="col-2" style={{ paddingTop: '25px' }}>
-                                                    <select class="browser-default custom-select" style={{width:'62px'}} autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
+                                                    <select class="browser-default custom-select" value={this.state.salute} style={{width:'62px'}} autocomplete="off"  name="salutation" title="salutation" id="salutation" onChange={(event) => {
                                                         this.setState({
                                                             salute: event.target.value
                                                         })
@@ -295,14 +319,14 @@ hideCompanyLocation = () => {
                                                     </select>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.employeeName} onKeyPress={this.hideEmployeeName} label="Employee Name" className="w-100" name="employeeName" title="Employee Name" id="employeeName" onChange={(event) => {
                                                         this.setState({
                                                             employeeName: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <MDBInput autocomplete="off" onClick={this.hideJoiningDate} onKeyPress={this.hideJoiningDate} type="date" label="Joining Date" title="Joining Date" name="JoiningDate" id="joiningDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.joiningDate} onClick={this.hideJoiningDate} onKeyPress={this.hideJoiningDate} type="date" label="Joining Date" title="Joining Date" name="JoiningDate" id="joiningDate" onChange={(event) => {
                                                         this.setState({
                                                             joiningDate: event.target.value
                                                         });this.hideJoiningDate()
@@ -323,14 +347,14 @@ hideCompanyLocation = () => {
                                            </div>
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.designation} onKeyPress={this.hideDesignation} label="Designation" type="text" name="designation" id="designation" title="designation" onChange={(event) => {
                                                         this.setState({
                                                             designation: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div className="col-6">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideCompanyLocation} label="Company Location" className="w-100" name="companyLocation" title="Company Location" id="companyLocation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.companyLocation} onKeyPress={this.hideCompanyLocation} label="Company Location" className="w-100" name="companyLocation" title="Company Location" id="companyLocation" onChange={(event) => {
                                                         this.setState({
                                                             companyLocation: event.target.value
                                                         })
@@ -349,14 +373,14 @@ hideCompanyLocation = () => {
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onClick={this.hideTrainingStartDate} onKeyPress={this.hideTrainingStartDate} type="date" label="Traininng Start Date" title="Training Start Date" name="trainingStartDate" id="trainingStartDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.trainingStartDate} onClick={this.hideTrainingStartDate} onKeyPress={this.hideTrainingStartDate} type="date" label="Traininng Start Date" title="Training Start Date" name="trainingStartDate" id="trainingStartDate" onChange={(event) => {
                                                         this.setState({
                                                             trainingStartDate: event.target.value
                                                         });this.hideTrainingStartDate();
                                                     }} />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <MDBInput autocomplete="off" onClick={()=>{this.hideTrainingEndDate();this.hideInvalidDate()}} onKeyPress={()=>{this.hideTrainingEndDate();this.hideInvalidDate()}} type="date" label="Training End Date" title="Training End Date" name="trainingStartDate" id="trainingEndDate" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.trainingEndDate} onClick={()=>{this.hideTrainingEndDate();this.hideInvalidDate()}} onKeyPress={()=>{this.hideTrainingEndDate();this.hideInvalidDate()}} type="date" label="Training End Date" title="Training End Date" name="trainingStartDate" id="trainingEndDate" onChange={(event) => {
                                                         this.setState({
                                                             trainingEndDate: event.target.value
                                                         });this.hideTrainingEndDate();this.hideInvalidDate()
@@ -375,21 +399,21 @@ hideCompanyLocation = () => {
                                            </div>
                                             <div class="row">
                                             <div class="col-md-4">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideCourseName} label="Course Name" name="courseName" id="courseName" title="Course Name" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.courseName} onKeyPress={this.hideCourseName} label="Course Name" name="courseName" id="courseName" title="Course Name" onChange={(event) => {
                                                         this.setState({
                                                             courseName: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideBranchName} label="Branch Name" name="branchName" id="branchName" title="Branch Name" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.branchName} onKeyPress={this.hideBranchName} label="Branch Name" name="branchName" id="branchName" title="Branch Name" onChange={(event) => {
                                                         this.setState({
                                                             branchName: event.target.value
                                                         })
                                                     }} />
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <MDBInput autocomplete="off" onKeyPress={this.hideBranchLocation} type="text" label="Branch Location" title="Branch Location" name="branchLocation" id="branchLocation" onChange={(event) => {
+                                                    <MDBInput autocomplete="off" value={this.state.branchLocation} onKeyPress={this.hideBranchLocation} type="text" label="Branch Location" title="Branch Location" name="branchLocation" id="branchLocation" onChange={(event) => {
                                                         this.setState({
                                                             branchLocation: event.target.value
                                                         })
@@ -412,7 +436,7 @@ hideCompanyLocation = () => {
                                                </div>
                                            </div>
 
-                                           <div className="row">
+                                           {/* <div className="row">
                                                 <div className="col-6">
                                                 <div className="custom-control custom-checkbox custom-control-inline col-6">
   <input type="checkbox" value={this.state.withHeader} className="custom-control-input" onChange={(event) => {
@@ -431,7 +455,7 @@ hideCompanyLocation = () => {
 </div>
 
                                                     </div>
-                                            </div>
+                                            </div> */}
 
                                             <div className=" input-group w-50 container-fluid">
                                                 <MDBBtn outline id="generate" type="submit" className=" form-control-plaintext  justify-content-center text-center" color="primary">Generate</MDBBtn>

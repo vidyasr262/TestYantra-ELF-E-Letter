@@ -67,6 +67,12 @@ export class ConfirmationLetter extends Component {
         }
     }
 
+     //edit
+  sendData(){
+    this.props.sendData(this.state.employee);
+    this.props.history.push('/inputConfirmation');
+
+  }
 
 
     render() {
@@ -83,12 +89,12 @@ export class ConfirmationLetter extends Component {
         if (this.props.empData) {
             return (
                 <div>
-                    <Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} setHeader={(data)=>this.print()} />
+                    <Home buttonShow={true} showWatermark={(data) => this.setState({ waterMark: data })} sendData={()=>this.sendData()} setHeader={(data)=>this.print()} />
                     <div className="card" style={{ marginTop: '100px' }} id="AFourPage">
                         <div className="card-body  pb-0 mt-5">
                             <div>
 
-                                {this.state.employee.withHeader ? <header className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
+                                {this.state.waterMark ? <header className="header" style={{ marginLeft: '-115px', marginTop: '-100px' }}>
 
                                     <img className="tyHeader" src={TyHeader}></img>
 
@@ -97,7 +103,7 @@ export class ConfirmationLetter extends Component {
 
 
 
-                                {this.state.employee.withWaterMark ? <div className="waterMark">
+                                {this.state.waterMark ? <div className="waterMark">
                                     <span style={{
                                         color: '#263248', fontSize: '91px',
                                         fontFamily: 'sans-serif', position: 'absolute', opacity: '0.3', zIndex: '0'
@@ -141,7 +147,7 @@ export class ConfirmationLetter extends Component {
 
                             </div>
                         </div>
-                        {this.state.employee.withHeader ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '290px' }}>
+                        {this.state.waterMark ? <div className="footer" style={{ marginLeft: '-141px', marginTop: '290px' }}>
 
                             <img className="tyfooter" style={{marginLeft:'48px'}} src={TyFooter}></img>
 
